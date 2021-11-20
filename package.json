@@ -12,7 +12,8 @@
     "@astrojs/renderer-react": "^0.3.0",
     "astro": "^0.20.12",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "sass": "^1.43.4"
   },
   "dependencies": {
     "react-datocms": "^1.6.6"

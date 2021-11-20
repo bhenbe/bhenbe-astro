@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 
+const path = 'https://bhenbe-astro.netlify.app/'; //Astro.site.pathname;
 const months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
 const data = await fetch(
     'https://graphql.datocms.com/',
@@ -35,7 +36,7 @@ const data = await fetch(
             {data.data.allPosts.map((post, index) => {
                 return (
                     <li key={index}>
-                        <a href={"/blog/" + post.slug}>
+                        <a href={path + "blog/" + post.slug}>
                             {post.titre}
                             <span>{months[(parseInt(post.postDate.slice(5, 7)) - 1)]} {' '} {post.postDate.slice(0, 4)}</span>
                         </a>
