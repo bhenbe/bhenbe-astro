@@ -10,8 +10,6 @@ import HomepageData from "../queries/GetHomepage.js";
 const data = await HomepageData();
 ---
 <BaseLayout title={data.pageTitle}>
-    <!-- Output the result to the page -->
-    <h1>{data.pageTitle}</h1>
     {data.pageContentAlt.blocks.map(block => {
         switch(block._modelApiKey) {
             case 'block_text': 

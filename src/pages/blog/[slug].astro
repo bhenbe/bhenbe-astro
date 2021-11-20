@@ -1,6 +1,6 @@
 ---
-import { StructuredText } from 'node:react-datocms'
 import BaseLayout from '../../layouts/BaseLayout.astro'
+import PostContent from "../../components/PostContent.astro";
 
 export async function getStaticPaths() {
     const data = await fetch(
@@ -40,10 +40,13 @@ const { slug } = Astro.request.params;
 const {post} = Astro.props;
 ---
 <BaseLayout title={post.titre}>
-    <!-- Output the result to the page -->
-    <h1 class="lg:text-6xl md:text-5xl text-3xl font-bold mb-12">{post.titre}</h1>
+    
+    <main id="main" class="post-single">
 
-    <main>
-        <StructuredText data={post.content} />
+        <h1>{post.titre}</h1>
+
+        <PostContent content={post.content}/>
+
     </main>
+
 </BaseLayout>

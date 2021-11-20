@@ -9,12 +9,12 @@
     "preview": "astro preview"
   },
   "devDependencies": {
+    "@astrojs/renderer-react": "^0.3.0",
     "astro": "^0.20.12",
-    "datocms-client": "^3.5.9",
-    "tailwindcss": "^2.2.19"
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "dependencies": {
-    "dotenv": "^10.0.0",
     "react-datocms": "^1.6.6"
   }
 }

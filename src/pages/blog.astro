@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 
+const months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
 const data = await fetch(
     'https://graphql.datocms.com/',
     {
@@ -24,18 +25,26 @@ const data = await fetch(
 ).then((response) => response.json());
 ---
 <BaseLayout title="Le blog">
-    <!-- Output the result to the page -->
-    <h1 class="lg:text-6xl md:text-5xl text-3xl font-bold mb-12">Le blog</h1>
-    <ul>
-    {data.data.allPosts.map((post, index) => {
-        return (
-            <li key={index}>
-                <a href={"/blog/" + post.slug} class="block px-4 py-8 border-b hover:bg-gray-50 hover:underline">
-                    {post.titre}
-                    <span class="block text-sm text-gray-400">{post.postDate.slice(5, 7)} / {post.postDate.slice(0, 4)}</span>
-                </a>
-            </li>
-        )
-    })}
-    </ul>
+
+    <main id="main">
+
+        <h1>Le blog</h1>
+
+        <nav class="blog-summary">
+            <ul>
+            {data.data.allPosts.map((post, index) => {
+                return (
+                    <li key={index}>
+                        <a href={"/blog/" + post.slug}>
+                            {post.titre}
+                            <span>{months[(parseInt(post.postDate.slice(5, 7)) - 1)]} {' '} {post.postDate.slice(0, 4)}</span>
+                        </a>
+                    </li>
+                )
+            })}
+            </ul>
+        </nav>
+
+    </main>
+
 </BaseLayout>
