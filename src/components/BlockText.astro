@@ -2,10 +2,14 @@
 import { Markdown } from 'astro/components';
 const { title, content } = Astro.props;
 ---
-<section class="max-w-6xl mx-auto my-32">
+<main id="main" class="max-w-6xl mx-auto my-32 md:my-64">
 
-    <h1 class="text-6xl font-bold mb-12">{title}</h1>
+    <h1 class="lg:text-6xl md:text-5xl text-3xl font-bold mb-12">{title}</h1>
 
-    <Markdown content={content} />
+    <div>
+        
+        <Markdown content={content} />
 
-</section>
+    </div>
+
+</main>

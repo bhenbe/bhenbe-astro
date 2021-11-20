@@ -1,0 +1,41 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+const data = await fetch(
+    'https://graphql.datocms.com/',
+    {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer 474e113b8e779f09724e19ed0ef15b`,
+        },
+        body: JSON.stringify({
+            query: `{
+                allPosts(locale: fr, orderBy: postDate_DESC) {
+                    titre
+                    slug
+                    postDate
+                    id
+                }
+            }`
+        }),
+    }
+).then((response) => response.json());
+---
+<BaseLayout title="Le blog">
+    <!-- Output the result to the page -->
+    <h1 class="lg:text-6xl md:text-5xl text-3xl font-bold mb-12">Le blog</h1>
+    <ul>
+    {data.data.allPosts.map((post, index) => {
+        return (
+            <li key={index}>
+                <a href={"/blog/" + post.slug} class="block px-4 py-8 border-b hover:bg-gray-50 hover:underline">
+                    {post.titre}
+                    <span class="block text-sm text-gray-400">{post.postDate.slice(5, 7)} / {post.postDate.slice(0, 4)}</span>
+                </a>
+            </li>
+        )
+    })}
+    </ul>
+</BaseLayout>

@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    p, li, a {
+        font-size: 1.25rem;
+        font-size: calc(1.25rem + .2vw);
+        line-height: 1.5;
+    }
+
+    p {
+        max-width: 64ch;
+        margin-bottom: 2rem;
+    }
+}
+
+.list-column ul{
+    @apply flex flex-row flex-wrap;   
+}
+
+.list-column ul li{
+    @apply w-1/2;   
+}

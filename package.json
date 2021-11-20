@@ -12,5 +12,9 @@
     "astro": "^0.20.12",
     "datocms-client": "^3.5.9",
     "tailwindcss": "^2.2.19"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "react-datocms": "^1.6.6"
   }
 }

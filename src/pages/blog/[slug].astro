@@ -1,0 +1,49 @@
+---
+import { StructuredText } from 'node:react-datocms'
+import BaseLayout from '../../layouts/BaseLayout.astro'
+
+export async function getStaticPaths() {
+    const data = await fetch(
+        'https://graphql.datocms.com/',
+        {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'Authorization': `Bearer 474e113b8e779f09724e19ed0ef15b`,
+        },
+        body: JSON.stringify({
+            query: `{
+                allPosts(locale: fr, orderBy: postDate_DESC) {
+                  titre
+                  slug
+                  postDate
+                  id
+                  content(locale: fr) {
+                    value
+                  }
+                }
+              }`
+        }),
+        }
+    ).then((response) => response.json());
+
+    return data.data.allPosts.map(( post, i) => {
+        return {
+            params: { slug: post.slug },
+            props: {post}
+        };
+    });
+}
+
+const { slug } = Astro.request.params;
+const {post} = Astro.props;
+---
+<BaseLayout title={post.titre}>
+    <!-- Output the result to the page -->
+    <h1 class="lg:text-6xl md:text-5xl text-3xl font-bold mb-12">{post.titre}</h1>
+
+    <main>
+        <StructuredText data={post.content} />
+    </main>
+</BaseLayout>

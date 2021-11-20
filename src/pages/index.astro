@@ -6,71 +6,13 @@ import BlockTextImage from "../components/BlockTextImage.astro";
 import BlockCta from "../components/BlockCta.astro";
 import BlockClient from "../components/BlockClient.astro";
 
-const token = '474e113b8e779f09724e19ed0ef15b';
-const response = await fetch(
-  'https://graphql.datocms.com/',
-  {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Authorization': `Bearer ${token}`,
-    },
-    body: JSON.stringify({
-      query: `{
-            page(filter: {id: {eq: "9620074"}}) {
-                pageTitle(locale: fr)
-                pageSlug(locale: fr)
-                pageContentAlt(locale: fr) {
-                    blocks {
-                        ... on BlockClientRecord {
-                            id
-                            _modelApiKey
-                            blockClientTitle
-                            blockClientContent(markdown: true)
-                        }
-                        ... on BlockCtaRecord {
-                            id
-                            _modelApiKey
-                            blockCtaAlign
-                            blockCtaContent(markdown: true)
-                            blockCtaLabel
-                            blockCtaUrl
-                        }
-                        ... on BlockTextImageRecord {
-                            id
-                            _modelApiKey
-                            blockTextImageTitle
-                            blockTextImageContent(markdown: true)
-                            blockTextImageAlign
-                            blockTextImageImage {
-                                url(imgixParams: {})
-                                width
-                                height
-                                format
-                                alt(locale: fr)
-                            }
-                        }
-                        ... on BlockTextRecord {
-                            id
-                            _modelApiKey
-                            blockTextTitle
-                            blockTextContent(markdown: true)
-                        }
-                    }
-                }
-            }
-        }`
-    }),
-  }
-);
-const data = await response.json();
-const page = data.data.page;
+import HomepageData from "../queries/GetHomepage.js";
+const data = await HomepageData();
 ---
-<BaseLayout title={page.pageTitle}>
+<BaseLayout title={data.pageTitle}>
     <!-- Output the result to the page -->
-    <h1>{page.pageTitle}</h1>
-    {page.pageContentAlt.blocks.map(block => {
+    <h1>{data.pageTitle}</h1>
+    {data.pageContentAlt.blocks.map(block => {
         switch(block._modelApiKey) {
             case 'block_text': 
                 return <BlockText 
@@ -81,7 +23,7 @@ const page = data.data.page;
                 return <BlockTextImage 
                         title={block.blockTextImageTitle} 
                         content={block.blockTextImageContent}
-                        image={block.blockTextImageImage.url}
+                        image={block.blockTextImageImage}
                         />
             case 'block_cta': 
                 return <BlockCta 

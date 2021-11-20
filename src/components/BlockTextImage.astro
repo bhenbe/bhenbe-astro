@@ -2,15 +2,23 @@
 import { Markdown } from 'astro/components';
 const { title, content, image } = Astro.props;
 ---
-<section class="max-w-6xl mx-auto my-32">
+<section class="max-w-6xl mx-auto my-32 md:my-64">
 
-    <h2 class="text-5xl font-bold mb-12">{title}</h2>
+    <div class="flex flex-col md:flex-row gap-8">
 
-    <div class="flex flex-1">
+        <figure class="w-full md:w-1/2">
 
-        <img src={image} alt="" class="w-auto max-w-md" />
+            <img src={image.url} width={image.width} height={image.height}  alt="" class="w-full h-auto max-h-80 my-auto" />
 
-        <Markdown content={content} />
+        </figure>
+
+        <div class="w-full md:w-1/2">
+
+            <h2 class="lg:text-4xl md:text-3xl text-2xl font-bold mb-12">{title}</h2>
+
+            <Markdown content={content} />
+
+        </div>
 
     </div>
 
