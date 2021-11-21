@@ -1,0 +1,35 @@
+---
+const { url, label } = Astro.props;
+---
+<a href={url} class="btn btn-primary">{label}</a>
+
+<style>
+.btn{
+    display: block;
+    padding: 1rem 2rem;
+    line-height: 1.1;
+    font-weight: bold;
+    border-radius: 3px;
+    text-decoration: none;
+    background-color: white;
+    text-align: center;
+}
+
+.btn-primary{
+    background-color: hsl(52, 100%, 50%);
+    color: hsl(53, 9%, 17%);
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus{
+    background-color: hsl(53, 9%, 17%);
+    color: white;
+}
+
+@media(min-width: 44rem){
+    .btn{
+        display: inline-block;
+    }
+}
+</style>

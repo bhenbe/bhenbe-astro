@@ -1,6 +1,10 @@
 ---
 const { title } = Astro.props;
 const path = 'https://bhenbe-astro.netlify.app/'; //Astro.site.pathname;
+
+import SkipToContent from "../components/SkipToContent.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
 ---
 <html lang="fr">
     <head>
@@ -8,73 +12,21 @@ const path = 'https://bhenbe-astro.netlify.app/'; //Astro.site.pathname;
         <meta name="viewport" content="width=device-width">
         <title>{title}</title>
 
+        <link rel="stylesheet" href={Astro.resolve('../styles/reset.css')}>
         <link rel="stylesheet" href={Astro.resolve('../styles/main.css')}>
     </head>
     <body>
-        <a href="#main" id="skip-link">Accéder au contenu principal</a>
+        <SkipToContent />
 
         <div class="site">
  
-            <header class="site-header no-print">
-
-                <nav id="main-menu" class="navbar" role="navigation" aria-label="Main menu">
-                
-                    <div class="brand">
-                        <a href={path}>
-                            <svg width="122" height="103" xmlns="http://www.w3.org/2000/svg">
-                                <title>Benoit Henry alias bhen</title>
-                                <g fill="none" fill-rule="evenodd">
-                                    <path d="M56 95.3C83.4 91 107.8 84 119 58.2 130.2 32.3 97.2-7.2 56 2 14.8 11.2-6.3 49.5 3 70.9c9.3 21.3 25.6 28.7 53 24.4zM109.7 96.1c12.2-5 10.2-13 7.7-15.5-2.5-2.5-8.4-.6-15.8 4.2C94.2 89.5 87.2 93.5 89 96c1.8 2.6 8.6 5 20.7 0zM79.5 102.3c3.6-1 7-3.7 5.9-5.8-1.2-2.1-3.4-1.5-7.7-.6-4.3.8-8 1.4-8 3.6 0 2.1 6 3.8 9.8 2.8z" fill="#3A3931"/>
-                                    <path d="M90.9 68.4a29.7 29.7 0 0 0 3.6-6.8c.2-.5.1-.9 0-1.2-.3-.3-.5-.5-.8-.6l-1 .1c-.4.2-.7.5-.8 1a25.7 25.7 0 0 1-4.6 7.1c-.6.6-1 .9-1.4.8-.2 0-.4-.4-.5-1.2a20.6 20.6 0 0 1 .4-6l.6-2.2c.3-.7.2-1.2-.2-1.6-.4-.4-1-.7-1.7-.7-.7-.1-1.4 0-2.2.3-.8.2-1.4.6-1.9 1.1l-1.9 2.9c-.6 1.1-1.2 2.4-1.7 3.9l.1-2.1a38.6 38.6 0 0 1 1.3-5.5l.6-2.6c.1-.8-.1-1.4-.7-1.8-.6-.4-1.2-.6-2-.6s-1.6.3-2.4.8c-.8.5-1.3 1.2-1.5 2.3-.3 1.1-.5 2.3-.6 3.7v1.2c-.8 1.1-4.2 6-5 6.8-.8.8-1.6 1.5-2.5 2-.8.4-1.6.5-2.3.3-.6-.1-1-.5-1.3-1.2-.3-.6-.6-1.3-.7-2.2-.1-.7 0-.8.1-.8l2.2-.2a14.1 14.1 0 0 0 4.6-1.5c.6-.4 1.2-1 1.6-1.6.6-.7.8-1.7.8-3a10.5 10.5 0 0 0-3.4-7l-1-.7a5 5 0 0 0-2.6-.7c-1.4 0-2.7.7-3.8 2a17.6 17.6 0 0 0-2.9 5.4c-.5 1.5-1.1 3.8-1.3 5.8a35.7 35.7 0 0 1-2.9 5.5c-.5.8-1 1.2-1.3 1.2-.3 0-.4-.7-.4-2a42.8 42.8 0 0 1 .7-9.2c.2-1.6.4-2.6.6-3 .3-.8.2-1.4-.3-1.8-.4-.3-1-.5-1.8-.5s-1.6 0-2.4.4c-.8.2-1.4.7-1.9 1.2a40.1 40.1 0 0 0-4 7l.5-7.7 1.8-22.6a593.2 593.2 0 0 0 1-8.5c.1-.8 0-1.5-.7-2-.6-.6-1.4-1-2.2-1-.8 0-1.6.2-2.3.7-.7.5-1 1.4-1 2.7l-.2 3.3-.3 5.7L35.4 56l-.2 2.5-.1-.7A9.1 9.1 0 0 0 33 54a5 5 0 0 0-3.9-1.5 5.3 5.3 0 0 0-4 1.8 909 909 0 0 1 1.4-15.8c.2-1 0-1.6-.7-2.2-.6-.5-1.4-.8-2.2-.9-.8 0-1.6.2-2.3.7-.7.5-1 1.5-1 2.8l-.1 3.3A3956.8 3956.8 0 0 0 19 62.3l-.5 7c-.2 2.1-.3.7-.4 2 0 .9.2 1.5.7 1.8.6.4 1.3.5 2 .5a4 4 0 0 0 2-.7c.7-.4 1-1 1-1.7v.8c1 1 2 1.5 3.5 1.5 1.7 0 3-.5 4.3-1.6 1.2-1 2.1-2.3 2.8-4l.2-.6a669.9 669.9 0 0 1-.7 8.4c0 .8.1 1.4.7 1.7.6.4 1.2.6 2 .5a4 4 0 0 0 2-.6c.7-.4 1-1 1-1.8v-.8-.3l.8-3a92.3 92.3 0 0 1 3-8c.5-1 .9-1.6 1.2-1.8a22.5 22.5 0 0 0-.6 8c.1 1.2.4 2.1.8 3 .3.8.9 1.4 1.6 1.8.7.5 1.6.6 2.8.4 1-.3 2-1 3-2s1.9-2.3 2.7-3.7a10.4 10.4 0 0 0 1.5 2.5 5.7 5.7 0 0 0 4.7 2.1c1.7 0 3.2-.4 4.6-1.1 1.4-.7 3.5-2.2 5.7-5.1v.3l-.2 3.4c-.1.8.1 1.4.7 1.8.6.5 1.2.7 2 .7a4 4 0 0 0 2-.4c.7-.3 1.1-.8 1.2-1.5l.6-2.4a35.4 35.4 0 0 1 1.9-5c.3-.6.6-1 .9-1v1.9 3.1c.2 1 .6 2 1.2 3 .7.8 1.8 1.3 3.3 1.4 1 0 2-.4 3-1.3s2-2 2.9-3.1zM30 59.6a34.2 34.2 0 0 1-1 7c-.3 1-.7 1.9-1.1 2.5-.5.7-1 1-1.4.9-.8-.2-1.3-.6-1.7-1.3-.4-.8-.6-1.7-.7-2.8a14.3 14.3 0 0 1 .2-2 19.3 19.3 0 0 1 1.6-6l1.4-2c.6-.4 1.1-.6 1.7-.4.3 0 .6.5.8 1.3l.2 2.8zM61.9 57l.2-.7c.4-.8.7-1.3 1-1.5.2 0 .5.1.7.5l.1.5.3 1.2A9.4 9.4 0 0 1 64 60l-.3.6a2 2 0 0 1-1.4.9l-1.8.2a55.6 55.6 0 0 1 1.3-4.6z" fill="#FFF" fill-rule="nonzero"/>
-                                    <path d="M100.3 35.3c-.5-.6-4.8 2.4-8.2 5 0-6.2 0-11-1-11s-1.7 4.3-2 10.2c-2.3-2.6-3.6-3.6-4.3-3-.9.7.4 2.7 3.9 6.7a14.2 14.2 0 0 0-4.1 5.1c-.4 1.5 1.8 0 4.4-2 0 6.1.4 10.8 1.4 10.8.7 0 1.2-4.4 1.5-10.3 3.3 3.6 6 6 6.7 5.3 1-.8-2-4.3-6-8.8 3.4-3 8.3-7.2 7.7-8zM77.7 21.2c.3-.3 2.6 1.3 4.4 2.8 0-3.4.2-6 .7-6 .6 0 .9 2.4 1 5.6 1.2-1.4 2-2 2.3-1.6.5.4-.2 1.5-2.2 3.6 1.4 1.3 2 2.4 2.2 2.8.2.8-1 0-2.4-1.2 0 3.4-.3 6-.9 6-.4 0-.6-2.5-.7-5.7-1.8 2-3.3 3.2-3.7 2.8-.4-.5 1.2-2.3 3.4-4.7-1.8-1.6-4.4-4-4-4.4zM72 27.5c-.6 0-1.1 3.5-1.5 7.8-2.6-1-5.2-1.8-5.4-1.3-.2.4 2 1.7 4.5 2.8-1.5 1-2.1 1.6-1.9 2 .3.4 1 0 2.6-.9-.2 3-.2 5.3.5 5.3.6 0 1-2.1 1.4-5.2l.7.3c3 1.2 4.9 1.5 5.6 1.3 1.4-.3-1.8-1.7-4.8-3l-1-.3c2-1.4 3.5-2.6 3.2-3-.3-.4-1.6.4-3.4 1.6.3-4 .2-7.3-.6-7.4z" fill="#FFF" fill-rule="nonzero"/>
-                                </g>
-                            </svg>
-                        </a>
-                    </div>
-                
-                    <ul>
-                        <li>
-                            <a href={path + "blog/"}>Blog</a>
-                        </li>
-                        <li>
-                            <a href="tel:0032474681649">+32 474 681 649</a>
-                        </li>
-                        <li>
-                            <a href="mail:contact@bhen.be">contact@bhen.be</a>
-                        </li>
-                    </ul>
-
-                </nav>
-
-            </header>
+            <SiteHeader />
 
             <slot />
 
         </div>
 
-        <footer class="site-footer no-print" role="contentinfo">
-
-            <nav role="navigation">
-                <ul>
-                    <li><a href="https://medium.com/@bhenbe"><span class="visually-hidden">lire mes articles sur </span>Medium</a></li>
-                    <li><a href="https://www.behance.net/bhenbe"><span class="visually-hidden">aller sur mon portfolio </span>Behance</a></li>
-                    <li><a href="https://codepen.io/bhenbe/"><span class="visually-hidden">voir mes réalisations sur </span>Codepen</a></li>
-                    <li><a href="http://twitter.com/bhenbe"><span class="visually-hidden">consulter ma page </span>Twitter</a></li>
-                    <li><a href="https://www.linkedin.com/in/benoit-henry-00b08b19/"><span class="visually-hidden">consulter mon cv </span>LinkedIn</a></li>
-                    <li><a href="mailto:contact@bhen.be"><span class="visually-hidden">me contacter par e-mail à l'adresse </span>contact@bhen.be</a></li>
-                    <li><a href="tel:+32474681649"><span class="visually-hidden">me contacter par téléphone au numéro </span>+32(0)474/68.16.49</a></li>
-                </ul>
-            </nav>
-    
-            <p><strong>Benoit HENRY</strong><br>designer UX consultant<br>TVA : BE0876452903<br></p>
-                    
-            <address>
-                <span>Rue de Vezon, 24c</span> 
-                <span>7643 Fontenoy</span>
-                <span>Belgique</span>
-            </address>
-
-        </footer>
+        <SiteFooter />
 
     </body>
 </html>

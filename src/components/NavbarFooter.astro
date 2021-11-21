@@ -1,0 +1,36 @@
+<nav>
+    <ul>
+        <li><a href="https://medium.com/@bhenbe"><span class="visually-hidden">lire mes articles sur </span>Medium</a></li>
+        <li><a href="https://www.behance.net/bhenbe"><span class="visually-hidden">aller sur mon portfolio </span>Behance</a></li>
+        <li><a href="https://codepen.io/bhenbe/"><span class="visually-hidden">voir mes réalisations sur </span>Codepen</a></li>
+        <li><a href="http://twitter.com/bhenbe"><span class="visually-hidden">consulter ma page </span>Twitter</a></li>
+        <li><a href="https://www.linkedin.com/in/benoit-henry-00b08b19/"><span class="visually-hidden">consulter mon cv </span>LinkedIn</a></li>
+        <li><a href="mailto:contact@bhen.be"><span class="visually-hidden">me contacter par e-mail à l'adresse </span>contact@bhen.be</a></li>
+        <li><a href="tel:+32474681649"><span class="visually-hidden">me contacter par téléphone au numéro </span>+32(0)474/68.16.49</a></li>
+    </ul>
+</nav>
+
+<style>
+nav ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+}
+
+nav ul li{
+    padding: 1rem;
+}
+
+nav a{
+    color: white;
+}
+
+@media (min-width: 44rem) {
+    nav ul{
+        flex-flow: row wrap;
+    }
+}
+</style>

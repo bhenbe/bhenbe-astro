@@ -1,0 +1,23 @@
+---
+import NavbarPrimary from "../components/NavbarPrimary.astro";
+---
+<header class="site-header no-print">
+
+    <NavbarPrimary />
+
+</header>
+
+<style>
+.site-header{
+    position: relative;
+}
+
+@media(min-width: 44rem){
+    .site-header{
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+    }
+}
+</style>

@@ -1,0 +1,44 @@
+---
+import ButtonPrimary from './atoms/ButtonPrimary.astro';
+
+const path = 'https://bhenbe-astro.netlify.app/'; //Astro.site.pathname;
+---
+<div class="block-post-end container">
+
+    <span class="block-post-end-loud">Envie d'échanger sur cet article ou de parler de votre projet ? </span>
+
+    <ButtonPrimary url="mailto:contact@bhen.be" label="Contactez-moi !" />
+
+</div>
+
+<div class="blog-summary-back container">
+
+    <ButtonPrimary url={path + "blog/"} label="Retour à la liste des articles" />
+
+</div>
+
+<style>
+.block-post-end{
+    background-color: #F8F7F5;
+    border-radius: 3px;
+}
+
+.block-post-end-loud{
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.blog-summary-back{
+    text-align: center;
+}
+
+@media(min-width: 44rem){
+    .block-post-end-loud{
+        font-size: 1.6rem;
+        font-size: calc(1.6rem + .2vw);
+        font-weight: normal;
+    }
+}
+</style>

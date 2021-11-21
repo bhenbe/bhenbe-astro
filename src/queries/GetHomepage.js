@@ -27,7 +27,7 @@ export default GetHomepage = async () => {
                                 id
                                 _modelApiKey
                                 blockCtaAlign
-                                blockCtaContent(markdown: true)
+                                blockCtaContent
                                 blockCtaLabel
                                 blockCtaUrl
                             }
@@ -35,6 +35,7 @@ export default GetHomepage = async () => {
                                 id
                                 _modelApiKey
                                 blockTextImageTitle
+                                slug
                                 blockTextImageContent(markdown: true)
                                 blockTextImageAlign
                                 blockTextImageImage {

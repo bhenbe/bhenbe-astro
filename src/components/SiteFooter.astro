@@ -1,0 +1,49 @@
+---
+import NavbarFooter from "../components/NavbarFooter.astro";
+---
+<footer class="site-footer no-print">
+
+    <div class="container">
+
+        <NavbarFooter />
+        
+        <p><strong>Benoit HENRY</strong><br>designer UX consultant<br>TVA : BE0876452903<br></p>
+                        
+        <address>
+            <span>Rue de Vezon, 24c</span> 
+            <span>7643 Fontenoy</span>
+            <span>Belgique</span>
+        </address>
+
+    </div>
+
+</footer>
+
+<style>
+.site-footer{
+    margin-top: 6rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background-color: hsl(53, 9%, 17%);
+    color: white;
+    text-align: center;
+}
+
+.site-footer p{
+    max-width: none;
+    margin-top: 3rem;
+    margin-bottom: 0;
+}
+
+.site-footer address{
+    font-style: normal;
+}
+
+.site-footer address span{
+    display: block;
+}
+
+.site-footer a{
+    color: white;
+}
+</style>

@@ -1,14 +1,23 @@
 ---
 import { Markdown } from 'astro/components';
+import ButtonPrimary from './atoms/ButtonPrimary.astro';
 const { title, content } = Astro.props;
 ---
-<main id="main" class="block-text">
-
-    <h1>{title}</h1>
+<main id="main" class="block-text container">
 
     <div>
-        
+
+        <h1>{title}</h1>
+
         <Markdown content={content} />
+
+        <p>
+            
+            <ButtonPrimary url="mailto:contact@bhen.be" label="Parlons de votre projet" /> 
+            
+            <a href="#je-suis-designer-web" class="more-info">ou découvrez-en plus sur moi...</a>
+
+        </p>
 
     </div>
 
@@ -16,33 +25,29 @@ const { title, content } = Astro.props;
 
 <style>
 .block-text{
-    width: 100%;
-    max-width: 80rem;
-    padding: 1rem;
-    margin: 3rem auto;
-}
-
-.block-text h1{
-    font-size: 2rem;
-    font-weight: normal;
+    margin-top: 3rem;
     margin-bottom: 3rem;
-    line-height: 1.3;
 }
 
-.block-text > div{
-    max-width: 80ch;
-    line-height: 1.5;
+.more-info{
+    display: block;
+    padding: 1rem;
+    line-height: 1.1;
+    text-align: center;
+    color: hsl(53, 9%, 17%);
+    text-decoration: none;
 }
 
 @media(min-width: 44rem){
     .block-text{
-        padding: 2rem;
-        margin: 20vh auto;
+        min-height: 100vh;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
     }
 
-    .block-text h1{
-        font-size: 3rem;
-        font-size: calc(3rem + .2vw);
+    .more-info{
+        display: inline-block;
     }
 }
 </style>

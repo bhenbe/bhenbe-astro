@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import PostContent from "../../components/PostContent.astro";
+import BlockPostEnd from "../../components/BlockPostEnd.astro";
 
 export async function getStaticPaths() {
     const data = await fetch(
@@ -41,11 +42,13 @@ const {post} = Astro.props;
 ---
 <BaseLayout title={post.titre}>
     
-    <main id="main" class="post-single">
+    <main id="main" class="container container__small mt-min post-single">
 
         <h1>{post.titre}</h1>
 
         <PostContent content={post.content}/>
+
+        <BlockPostEnd />
 
     </main>
 

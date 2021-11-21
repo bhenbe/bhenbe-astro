@@ -20,6 +20,7 @@ const data = await HomepageData();
             case 'block_text_image': 
                 return <BlockTextImage 
                         title={block.blockTextImageTitle} 
+                        slug={block.slug}
                         content={block.blockTextImageContent}
                         image={block.blockTextImageImage}
                         />

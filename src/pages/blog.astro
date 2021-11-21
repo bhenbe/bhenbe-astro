@@ -27,7 +27,7 @@ const data = await fetch(
 ---
 <BaseLayout title="Le blog">
 
-    <main id="main">
+    <main id="main" class="container mt-min">
 
         <h1>Le blog</h1>
 
@@ -49,3 +49,32 @@ const data = await fetch(
     </main>
 
 </BaseLayout>
+
+<style>
+.blog-summary ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.blog-summary a{
+    display: block;
+    padding: 2rem;
+    border-bottom: 1px solid #F8F7F5;
+    text-decoration: none;
+    color: hsl(53, 9%, 17%);
+}
+
+.blog-summary a span{
+    display: block;
+    font-size: 80%;
+    color: hsl(53, 9%, 47%);
+}
+
+.blog-summary a:hover,
+.blog-summary a:active,
+.blog-summary a:focus{
+    background-color: hsl(52, 100%, 50%);
+    font-weight: bold;
+}
+</style>

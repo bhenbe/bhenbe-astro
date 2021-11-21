@@ -1,10 +1,33 @@
 ---
 const { content, label, url } = Astro.props;
+import ButtonPrimary from './atoms/ButtonPrimary.astro';
 ---
-<section class="max-w-6xl mx-auto mb-32 md:mb-64">
+<aside class="block-cta container">
 
-    <p>{content}</p>
+    <span class="block-cta-loud">{content}</span>
 
-    <a href={url}>{label}</a>
+    <ButtonPrimary url={url} label={label} />
 
-</section>
+</aside>
+
+<style>
+.block-cta{
+    background-color: #F8F7F5;
+    border-radius: 3px;
+}
+
+.block-cta-loud{
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+@media(min-width: 44rem){
+    .block-cta-loud{
+        font-size: 1.6rem;
+        font-size: calc(1.6rem + .2vw);
+        font-weight: normal;
+    }
+}
+</style>
