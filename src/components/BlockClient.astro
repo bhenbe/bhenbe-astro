@@ -2,7 +2,7 @@
 import { Markdown } from 'astro/components';
 const { title, content } = Astro.props;
 ---
-<aside>
+<aside class="block-client">
 
     <p><strong>{title}</strong></p>
 
@@ -13,3 +13,21 @@ const { title, content } = Astro.props;
     </div>
 
 </aside>
+
+<style>
+.block-client{
+    width: 100%;
+    max-width: 80rem;
+    padding: 3rem;
+    margin: 3rem auto;
+    background-color: #eee;
+    border-radius: 3px;
+}
+
+.block-client p{
+    font-size: 1.4rem;
+    margin-bottom: 5rem;
+    line-height: 1.3;
+    text-align: center;
+}
+</style>
