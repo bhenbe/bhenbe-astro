@@ -51,6 +51,13 @@ export default GetHomepage = async () => {
                                 _modelApiKey
                                 blockTextTitle
                                 blockTextContent(markdown: true)
+                                backgroundImage {
+                                    url(imgixParams: {})
+                                    width
+                                    height
+                                    format
+                                    alt(locale: fr)
+                                }
                             }
                         }
                     }

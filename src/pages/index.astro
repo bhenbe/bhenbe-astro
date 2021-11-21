@@ -8,14 +8,16 @@ import BlockClient from "../components/BlockClient.astro";
 
 import HomepageData from "../queries/GetHomepage.js";
 const data = await HomepageData();
+const description = 'Site web de Benoit Henry, designer UI/UX et développeur front-end spécialisé dans la conception de design system et sites jamstack statiques éco-responsables.'
 ---
-<BaseLayout title={data.pageTitle}>
+<BaseLayout title={data.pageTitle} description={description}>
     {data.pageContentAlt.blocks.map(block => {
         switch(block._modelApiKey) {
             case 'block_text': 
                 return <BlockText 
                         title={block.blockTextTitle} 
                         content={block.blockTextContent}
+                        image={block.backgroundImage}
                         />
             case 'block_text_image': 
                 return <BlockTextImage 

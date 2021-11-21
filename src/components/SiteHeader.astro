@@ -10,11 +10,14 @@ import NavbarPrimary from "../components/NavbarPrimary.astro";
 <style>
 .site-header{
     position: relative;
+    background-color: rgba(255,255,255,.8);
+    backdrop-filter: saturate(150%) blur(0.4rem);
+    z-index: 10;
 }
 
 @media(min-width: 44rem){
     .site-header{
-        position: absolute;
+        position: fixed;
         width: 100%;
         top: 0;
         left: 0;
