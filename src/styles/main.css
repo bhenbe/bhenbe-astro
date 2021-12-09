@@ -94,7 +94,7 @@ aside{
     section{
         margin-top: 10rem;
         margin-bottom: 2rem;
-        padding-top: 6rem;
+        padding-top: 6rem !important;
     }
 
     aside{
