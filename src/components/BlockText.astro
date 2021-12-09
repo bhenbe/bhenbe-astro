@@ -7,21 +7,25 @@ const { title, content, image } = Astro.props;
 
     <div class="container">
 
-        <h1>{title}</h1>
+        <div>
 
-        <Markdown content={content} />
+            <h1>{title}</h1>
 
-        <p>
-            
-            <ButtonPrimary url="mailto:contact@bhen.be" label="Parlons de votre projet" /> 
-            
-            <a href="#je-suis-designer-web" class="more-info">ou découvrez-en plus sur moi...</a>
+            <Markdown content={content} />
 
-        </p>
+            <p>
+                
+                <ButtonPrimary url="mailto:contact@bhen.be" label="Parlons de votre projet" /> 
+                
+                <a href="#je-suis-designer-web" class="more-info">ou découvrez-en plus sur moi...</a>
+
+            </p>
+
+        </div>
+
+        <img src={image.url} width={image.width} height={image.height}  alt="" />
 
     </div>
-
-    <img src={image.url} width={image.width} height={image.height}  alt="" />
 
 </main>
 
@@ -33,12 +37,6 @@ const { title, content, image } = Astro.props;
 
 .block-text img{
     display: none;
-}
-
-.block-text > div{
-    position: relative;
-    z-index: 5;
-    background-color: rgba(255, 255, 255, .8);
 }
 
 .more-info{
@@ -68,13 +66,19 @@ const { title, content, image } = Astro.props;
 }
 
 @media(min-width: 73.75rem){
+    .block-text .container{
+        display: flex; 
+        flex-flow: row nowrap;
+    }
+
+    .block-text .container > div{
+        max-width: 44rem;
+        padding-right: 2rem;
+    }
+
     .block-text img{
-        display:block;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        width: 30%;
-        min-width: 32rem;
+        display: block;
+        width: 100%;
         height: auto;
     }
 }

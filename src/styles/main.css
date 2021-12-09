@@ -21,13 +21,12 @@ h1, h2, h3, h4, h5, h6{
 }
 
 h1{ 
-    font-size: 2rem;
-    font-weight: normal;
+    font-size: 1.4rem;
     margin-bottom: 3rem;
 }
 
 h2{
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     margin-bottom: 1.5rem;
 }
 
@@ -80,20 +79,22 @@ aside{
 }
 
 @media(min-width: 44rem){
+    h1, h2, h3, h4, h5, h6{
+        font-weight: normal;
+    }
+
     h1{
-        font-size: 3rem;
-        font-size: calc(3rem + .2vw);
+        font-size: 2.625rem;
     }
 
     h2{
         font-size: 2.1rem;
-        font-size: calc(2.1rem + .2vw);
-        font-weight: normal;
     }
 
     section{
-        margin-top: 16rem;
+        margin-top: 10rem;
         margin-bottom: 2rem;
+        padding-top: 6rem;
     }
 
     aside{
