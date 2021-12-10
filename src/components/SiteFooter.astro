@@ -46,4 +46,15 @@ import NavbarFooter from "../components/NavbarFooter.astro";
 .site-footer a{
     color: white;
 }
+
+@media print{
+    .site-footer{
+        background-color: transparent;
+        color: black;
+    }
+
+    .site-footer a{
+        color: black;
+    }
+}
 </style>

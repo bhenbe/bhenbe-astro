@@ -13,7 +13,7 @@ const { title, content, image } = Astro.props;
 
             <Markdown content={content} />
 
-            <p>
+            <p class="no-print">
                 
                 <ButtonPrimary url="mailto:contact@bhen.be" label="Parlons de votre projet" /> 
                 
@@ -80,6 +80,12 @@ const { title, content, image } = Astro.props;
         display: block;
         width: 100%;
         height: auto;
+    }
+}
+
+@media print{
+    .block-text{
+        min-height: none;
     }
 }
 </style>

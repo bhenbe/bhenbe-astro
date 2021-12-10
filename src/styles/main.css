@@ -110,3 +110,19 @@ aside{
         margin-top: 10rem;
     }
 }
+
+@media print {
+    section{
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    aside{
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .no-print{
+        display: none;
+    }
+}
