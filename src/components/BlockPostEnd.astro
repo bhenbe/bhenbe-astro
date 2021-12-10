@@ -3,7 +3,7 @@ import ButtonPrimary from './atoms/ButtonPrimary.astro';
 
 const path = 'https://bhen.be/'; //Astro.site.pathname;
 ---
-<div class="block-post-end container">
+<div class="block-post-end container no-print">
 
     <span class="block-post-end-loud">Envie d'échanger sur cet article ou de parler de votre projet ? </span>
 
@@ -11,7 +11,7 @@ const path = 'https://bhen.be/'; //Astro.site.pathname;
 
 </div>
 
-<div class="blog-summary-back container">
+<div class="blog-summary-back container no-print">
 
     <ButtonPrimary url={path + "blog/"} label="Retour à la liste des articles" />
 
