@@ -1,30 +1,11 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
+import BaseLayout  from "layout:BaseLayout";
+import GetAllPosts from "query:GetAllPosts";
 
-const path = 'https://bhen.be/'; //Astro.site.pathname;
-const months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
-const data = await fetch(
-    'https://graphql.datocms.com/',
-    {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json',
-            'Authorization': `Bearer 474e113b8e779f09724e19ed0ef15b`,
-        },
-        body: JSON.stringify({
-            query: `{
-                allPosts(locale: fr, orderBy: postDate_DESC) {
-                    titre
-                    slug
-                    postDate
-                    id
-                }
-            }`
-        }),
-    }
-).then((response) => response.json());
-const description = 'Blog de Benoit Henry, designer UI/UX et développeur front-end spécialisé dans la conception de design system et sites jamstack statiques éco-responsables.'
+const path = Astro.site.pathname;
+const data = await GetAllPosts(import.meta.env.PUBLIC_DATO_API_TOKEN);
+const months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+const description = "Blog de Benoit Henry, designer UI/UX et développeur front-end spécialisé dans la conception de design system et sites jamstack statiques éco-responsables.";
 ---
 <BaseLayout title="Le blog - Bhen" description={description}>
 
@@ -34,7 +15,7 @@ const description = 'Blog de Benoit Henry, designer UI/UX et développeur front-
 
         <nav class="blog-summary">
             <ul>
-            {data.data.allPosts.map((post, index) => {
+            {data.map((post, index) => {
                 return (
                     <li key={index}>
                         <a href={path + "blog/" + post.slug}>

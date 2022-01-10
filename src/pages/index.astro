@@ -1,13 +1,12 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
+import BaseLayout     from 'layout:BaseLayout';
+import BlockText      from "component:BlockText";
+import BlockTextImage from "component:BlockTextImage";
+import BlockCta       from "component:BlockCta";
+import BlockClient    from "component:BlockClient";
+import GetHomepage    from "query:GetHomepage";
 
-import BlockText from "../components/BlockText.astro";
-import BlockTextImage from "../components/BlockTextImage.astro";
-import BlockCta from "../components/BlockCta.astro";
-import BlockClient from "../components/BlockClient.astro";
-
-import HomepageData from "../queries/GetHomepage.js";
-const data = await HomepageData();
+const data = await GetHomepage(import.meta.env.PUBLIC_DATO_API_TOKEN);
 const description = 'Site web de Benoit Henry, designer UI/UX et développeur front-end spécialisé dans la conception de design system et sites jamstack statiques éco-responsables.'
 ---
 <BaseLayout title="Bhen - designer UI/UX et développeur front-end ReactJS" description={description}>

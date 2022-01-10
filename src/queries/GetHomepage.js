@@ -1,6 +1,4 @@
-const token = '474e113b8e779f09724e19ed0ef15b';
-
-export default GetHomepage = async () => { 
+export default GetHomepage = async (token) => { 
     const data = await fetch(
         'https://graphql.datocms.com/',
         {

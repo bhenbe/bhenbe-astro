@@ -1,5 +1,3 @@
-const token = '474e113b8e779f09724e19ed0ef15b';
-
 export default GetAllPosts = async (token) => { 
     const data = await fetch(
         'https://graphql.datocms.com/',
@@ -23,5 +21,5 @@ export default GetAllPosts = async (token) => {
         }
     ).then((response) => response.json());
 
-    return data.data;
+    return data.data.allPosts;
 }

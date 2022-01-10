@@ -1,3 +1,11 @@
 {
-  "moduleResolution": "node"
+  "moduleResolution": "node",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "component:*": ["src/components/*.astro"],
+      "layout:*" : ["src/layouts/*.astro"],
+      "query:*" : ["src/queries/*.js"]
+    }
+  }
 }

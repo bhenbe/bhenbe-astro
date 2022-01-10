@@ -1,7 +1,7 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro'
-import PostContent from "../../components/PostContent.astro";
-import BlockPostEnd from "../../components/BlockPostEnd.astro";
+import BaseLayout   from "layout:BaseLayout";
+import PostContent  from "component:PostContent";
+import BlockPostEnd from "component:BlockPostEnd";
 
 export async function getStaticPaths() {
     const data = await fetch(
@@ -11,7 +11,7 @@ export async function getStaticPaths() {
         headers: {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
-            'Authorization': `Bearer 474e113b8e779f09724e19ed0ef15b`,
+            'Authorization': `Bearer ${import.meta.env.PUBLIC_DATO_API_TOKEN}`,
         },
         body: JSON.stringify({
             query: `{
