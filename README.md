@@ -1,23 +1,18 @@
-# Welcome to [Astro](https://astro.build)
+# Welcome to the source code of [Bhen.be](https://bhen.be)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/snowpackjs/astro/tree/latest/examples/starter)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This website is developped with [Astro](https://astro.build) using [DatoCMS](https://www.datocms.com/) as CMS and hosted by [Netlify](https://netlify.com)
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
-
 ```
 /
-├── public/
-│   ├── robots.txt
-│   └── favicon.ico
+├── public (for everything that doesn't need to be processed)
 ├── src/
 │   ├── components/
-│   │   └── Tour.astro
-│   └── pages/
-│       └── index.astro
+│   ├── layouts/
+│   ├── pages/
+│   ├── queries/
+│   └── styles/
 └── package.json
 ```
 
