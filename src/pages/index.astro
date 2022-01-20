@@ -11,27 +11,27 @@ const description = 'Site web de Benoit Henry, designer UI/UX et développeur fr
 ---
 <BaseLayout title="Bhen - designer UI/UX et développeur front-end ReactJS" description={description}>
     {data.pageContentAlt.blocks.map(block => {
-        switch(block._modelApiKey) {
-            case 'block_text': 
+        switch(block.__typename) {
+            case 'BlockTextRecord': 
                 return <BlockText 
                         title={block.blockTextTitle} 
                         content={block.blockTextContent}
                         image={block.backgroundImage}
                         />
-            case 'block_text_image': 
+            case 'BlockTextImageRecord': 
                 return <BlockTextImage 
                         title={block.blockTextImageTitle} 
                         slug={block.slug}
                         content={block.blockTextImageContent}
                         image={block.blockTextImageImage}
                         />
-            case 'block_cta': 
+            case 'BlockCtaRecord': 
                 return <BlockCta 
                         content={block.blockCtaContent}
                         label={block.blockCtaLabel}
                         url={block.blockCtaUrl}
                         />
-            case 'block_client': 
+            case 'BlockTextImageRecord': 
                 return <BlockClient 
                         title={block.blockClientTitle} 
                         content={block.blockClientContent}

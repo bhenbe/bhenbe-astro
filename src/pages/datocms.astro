@@ -1,0 +1,48 @@
+---
+import BaseLayout     from 'layout:BaseLayout';
+import BlockText      from "component:BlockText";
+import BlockTextImage from "component:BlockTextImage";
+import BlockCta       from "component:BlockCta";
+import BlockClient    from "component:BlockClient";
+import GetHomepage    from "query:GetHomepage";
+
+import { StructuredText } from "react-datocms";
+
+const data = await GetHomepage(import.meta.env.PUBLIC_DATO_API_TOKEN);
+const description = 'Site web de Benoit Henry, designer UI/UX et développeur front-end spécialisé dans la conception de design system et sites jamstack statiques éco-responsables.'
+---
+<BaseLayout title="Bhen - designer UI/UX et développeur front-end ReactJS" description={description}>
+    <StructuredText 
+        data={data.pageContentAlt} 
+        renderBlock={({ record }) => {
+            switch (record.__typename) {
+                case 'BlockTextRecord': 
+                    return <BlockText 
+                            title={record.blockTextTitle} 
+                            content={record.blockTextContent}
+                            image={record.backgroundImage}
+                            />;
+                case 'BlockTextImageRecord': 
+                    return <BlockTextImage 
+                            title={record.blockTextImageTitle} 
+                            slug={record.slug}
+                            content={record.blockTextImageContent}
+                            image={record.blockTextImageImage}
+                            />;
+                case 'BlockCtaRecord': 
+                    return <BlockCta 
+                            content={record.blockCtaContent}
+                            label={record.blockCtaLabel}
+                            url={record.blockCtaUrl}
+                            />;
+                case 'BlockTextImageRecord': 
+                    return <BlockClient 
+                            title={record.blockClientTitle} 
+                            content={record.blockClientContent}
+                            />;
+                default:
+                    return null;
+            }
+        }}
+    />
+</BaseLayout>

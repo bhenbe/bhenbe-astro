@@ -14,24 +14,25 @@ export default GetHomepage = async (token) => {
                     pageTitle(locale: fr)
                     pageSlug(locale: fr)
                     pageContentAlt(locale: fr) {
+                        value
                         blocks {
+                            __typename
                             ... on BlockClientRecord {
                                 id
-                                _modelApiKey
                                 blockClientTitle
                                 blockClientContent(markdown: true)
                             }
+                            __typename
                             ... on BlockCtaRecord {
                                 id
-                                _modelApiKey
                                 blockCtaAlign
                                 blockCtaContent
                                 blockCtaLabel
                                 blockCtaUrl
                             }
+                            __typename
                             ... on BlockTextImageRecord {
                                 id
-                                _modelApiKey
                                 blockTextImageTitle
                                 slug
                                 blockTextImageContent(markdown: true)
@@ -44,9 +45,9 @@ export default GetHomepage = async (token) => {
                                     alt(locale: fr)
                                 }
                             }
+                            __typename
                             ... on BlockTextRecord {
                                 id
-                                _modelApiKey
                                 blockTextTitle
                                 blockTextContent(markdown: true)
                                 backgroundImage {
