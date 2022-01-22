@@ -1,0 +1,34 @@
+.block-text-image > div{
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.block-text-image figure{
+    display: none;
+}
+
+.block-text-image img{
+    max-height: 20rem;
+}
+
+.block-text-image__content p{
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+@media(min-width: 44rem){
+    .block-text-image figure{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+    }
+
+    .block-text-image > div{
+        flex-flow: row wrap;
+    }
+
+    .block-text-image > div > *{
+        width: 50%;
+    }
+}

@@ -1,0 +1,58 @@
+.block-text{
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.block-text img{
+    display: none;
+}
+
+.more-info{
+    display: block;
+    padding: 1rem;
+    line-height: 1.1;
+    text-align: center;
+    color: hsl(53, 9%, 17%);
+    text-decoration: none;
+}
+
+@media(min-width: 44rem){
+    .block-text{
+        position: relative;
+        min-height: 100vh;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 7.5rem;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+    }
+
+    .more-info{
+        display: inline-block;
+    }
+}
+
+@media(min-width: 73.75rem){
+    .block-text .container{
+        display: flex; 
+        flex-flow: row nowrap;
+    }
+
+    .block-text .container > div{
+        max-width: 44rem;
+        padding-right: 2rem;
+    }
+
+    .block-text img{
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media print{
+    .block-text{
+        min-height: none;
+    }
+}

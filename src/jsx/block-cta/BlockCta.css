@@ -1,0 +1,19 @@
+.block-cta{
+    background-color: #F8F7F5;
+    border-radius: 3px;
+}
+
+.block-cta-loud{
+    display: block;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+@media(min-width: 44rem){
+    .block-cta-loud{
+        font-size: 1.6rem;
+        font-size: calc(1.6rem + .2vw);
+        font-weight: normal;
+    }
+}
