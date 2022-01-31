@@ -4,6 +4,7 @@
     "baseUrl": ".",
     "paths": {
       "component:*": ["src/components/*.astro"],
+      "jsx:*": ["src/jsx/*.jsx"],
       "layout:*" : ["src/layouts/*.astro"],
       "query:*" : ["src/queries/*.js"]
     }

@@ -1,8 +1,8 @@
 import { StructuredText } from "react-datocms";
-import BlockClient        from "./block-client/BlockClient";
-import BlockCta           from "./block-cta/BlockCta";
-import BlockText          from "./block-text/BlockText";
-import BlockTextImage     from "./block-text-image/BlockTextImage";
+import BlockClient        from "jsx:block-client/BlockClient";
+import BlockCta           from "jsx:block-cta/BlockCta";
+import BlockText          from "jsx:block-text/BlockText";
+import BlockTextImage     from "jsx:block-text-image/BlockTextImage";
 
 export default DatoStructuredText = (data) => {
     return (
